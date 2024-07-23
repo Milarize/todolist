@@ -1,5 +1,26 @@
 import 'package:flutter/material.dart';
 
+Widget getDrawer(context) {
+  return Drawer(
+    child: ListView(
+      children: [
+        ListTile(
+          title: Text("Main Page"),
+          onTap: () {
+            Navigator.pushNamed(context, MainPage.nameRoute);
+          },
+        ),
+        ListTile(
+          title: Text("Second Page"),
+          onTap: () {
+            Navigator.pushNamed(context, SecondPage.nameRoute);
+          },
+        )
+      ],
+    ),
+  );
+}
+
 void main() {
   runApp(const MainApp());
 }
@@ -29,18 +50,7 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Main page"),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text("Main Page"),
-            ),
-            ListTile(
-              title: Text("Second Page"),
-            )
-          ],
-        ),
-      ),
+      drawer: getDrawer(context),
       body: Container(
         child: Center(
           child: Text("Main Page"),
@@ -57,6 +67,10 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Main page"),
+      ),
+      drawer: getDrawer(context),
       body: Container(
         child: Center(
           child: Text("Second Page"),
