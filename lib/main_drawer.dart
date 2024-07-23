@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todolist_week3/echo_my_name.dart';
 import 'package:todolist_week3/main_page.dart';
 import 'package:todolist_week3/second_page.dart';
-
+import 'package:flutter/material.dart';
+import 'package:todolist_week3/todo_list.dart';
 Widget getDrawer(BuildContext context) {
   return Drawer(
     child: ListView(
@@ -25,8 +26,15 @@ Widget getDrawer(BuildContext context) {
             Navigator.pushNamed(context, EchoMyName.nameRoute);
           },
         ),
+        ListTile(
+          title: Text("Todo List"),
+          onTap: () {
+            Navigator.pushNamed(context, TodoList.nameRoute);
+          },
+        ),
       ],
     ),
   );
 }
+
 
