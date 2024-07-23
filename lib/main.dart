@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todolist_week3/echo_my_name.dart';
 import 'package:todolist_week3/main_page.dart';
 import 'package:todolist_week3/second_page.dart';
 
@@ -16,8 +17,12 @@ class MainApp extends StatelessWidget {
       initialRoute: MainPage.nameRoute,
       routes: {
         MainPage.nameRoute: (context) => MainPage(),
-        SecondPage.nameRoute: (context) => SecondPage()
+        SecondPage.nameRoute: (context) => SecondPage(),
+        EchoMyName.nameRoute: (context) => EchoMyName(),
       },
     );
   }
 }
+
+
+
