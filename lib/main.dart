@@ -26,6 +26,21 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Main page"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text("Main Page"),
+            ),
+            ListTile(
+              title: Text("Second Page"),
+            )
+          ],
+        ),
+      ),
       body: Container(
         child: Center(
           child: Text("Main Page"),
@@ -50,4 +65,3 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
-
