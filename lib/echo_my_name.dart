@@ -11,18 +11,43 @@ class EchoMyName extends StatefulWidget {
 
 class _EchoMyNameState extends State<EchoMyName> {
   String result = "ABC";
+  late TextEditingController
+      _controller; //late ตัวแปรมีค่
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: Column(
           children: [
-            TextField(),
+            TextField(
+                controller: _controller,
+                onSubmitted: (value) {
+                  setState(() {
+                    result = value;
+                    _controller.clear();
+                  });
+                }),
             SizedBox(height: 16.0),
             ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    result = "ทดสอบ";
+                    result = _controller.text;
+                    _controller.clear();
                   });
                 },
                 child: Text("Echo")),
@@ -34,3 +59,4 @@ class _EchoMyNameState extends State<EchoMyName> {
     );
   }
 }
+
