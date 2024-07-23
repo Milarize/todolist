@@ -14,7 +14,7 @@ class _EchoMyNameState extends State<EchoMyName> {
   late TextEditingController
       _controller; //late ตัวแปรมีค่
 
-  @override
+   @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -31,7 +31,11 @@ class _EchoMyNameState extends State<EchoMyName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Echo My Name"),
+      ),
       body: Container(
+        padding: EdgeInsets.all((16.0)),
         child: Column(
           children: [
             TextField(
@@ -59,4 +63,3 @@ class _EchoMyNameState extends State<EchoMyName> {
     );
   }
 }
-
