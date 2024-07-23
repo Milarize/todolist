@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class EchoMyName extends StatefulWidget {
@@ -10,11 +8,10 @@ class EchoMyName extends StatefulWidget {
 }
 
 class _EchoMyNameState extends State<EchoMyName> {
-  String result = "ABC";
-  late TextEditingController
-      _controller; //late ตัวแปรมีค่
+  String result = " = waiting for you =";
+  late TextEditingController _controller; //late ตัวแปรจะมีค่า
 
-   @override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -32,32 +29,50 @@ class _EchoMyNameState extends State<EchoMyName> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Echo My Name"),
+        title: Text(""),
       ),
       body: Container(
-        padding: EdgeInsets.all((16.0)),
-        child: Column(
-          children: [
-            TextField(
-                controller: _controller,
-                onSubmitted: (value) {
-                  setState(() {
-                    result = value;
-                    _controller.clear();
-                  });
-                }),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    result = _controller.text;
-                    _controller.clear();
-                  });
-                },
-                child: Text("Echo")),
-            SizedBox(height: 16.0),
-            Text(result)
-          ],
+        color: Colors.pink[50],
+        padding: EdgeInsets.all(16.0),
+        child: Center(
+          child: Card(
+            elevation: 4.0,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: _controller,
+                    onSubmitted: (value) {
+                      setState(() {
+                        result = value;
+                        _controller.clear();
+                      });
+                    },
+                    decoration: InputDecoration(
+                      labelText: "Please write something...",
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        result = _controller.text;
+                        _controller.clear();
+                      });
+                    },
+                    child: Text("Echo"),
+                  ),
+                  SizedBox(height: 16.0),
+                  Text(
+                    result,
+                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
